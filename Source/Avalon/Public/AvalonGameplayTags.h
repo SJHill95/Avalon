@@ -1,0 +1,38 @@
+// Sam Hill All Rights Reserved
+
+#pragma once
+
+#include "NativeGameplayTags.h"
+
+namespace AvalonGameplayTags
+{
+	/** Input Tags **/
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Move);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Look);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_Jump);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_EquipAxe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_UnequipAxe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_LightAttack_Axe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(InputTag_HeavyAttack_Axe);
+	
+	/** Player Tags **/
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Ability_Equip_Axe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Ability_Unquip_Axe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Ability_Attack_Light_Axe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Ability_Attack_Heavy_Axe);
+	
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Weapon_Axe);
+
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Event_Equip_Axe);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Event_Unequip_Axe);
+
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Status_JumpToFinisher);
+
+	/** Enemy Tags **/
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Weapon);
+
+	/** Shared Tags **/
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_Event_MeleeHit);
+
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Shared_SetByCaller_BaseDamage);
+}
