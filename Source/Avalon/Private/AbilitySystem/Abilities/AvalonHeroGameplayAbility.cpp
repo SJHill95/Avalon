@@ -35,7 +35,7 @@ UHeroCombatComponent* UAvalonHeroGameplayAbility::GetHeroCombatComponentFromActo
 
 FGameplayEffectSpecHandle UAvalonHeroGameplayAbility::MakeHeroDamageEffectSpecHandle(
 	TSubclassOf<UGameplayEffect> EffectClass, float InWeaponBaseDamage, FGameplayTag InCurrentAttackTypeTag,
-	int32 InCurrentComboCount)
+	int32 InUsedComboCount)
 {
 	check (EffectClass != nullptr);
 	
@@ -50,7 +50,7 @@ FGameplayEffectSpecHandle UAvalonHeroGameplayAbility::MakeHeroDamageEffectSpecHa
 
 	if (InCurrentAttackTypeTag.IsValid())
 	{
-		EffectSpecHandle.Data->SetSetByCallerMagnitude(InCurrentAttackTypeTag, InCurrentComboCount);
+		EffectSpecHandle.Data->SetSetByCallerMagnitude(InCurrentAttackTypeTag, InUsedComboCount);
 	}
 
 	return EffectSpecHandle;

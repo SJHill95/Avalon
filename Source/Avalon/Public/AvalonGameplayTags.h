@@ -28,6 +28,9 @@ namespace AvalonGameplayTags
 
 	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_Status_JumpToFinisher);
 
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_SetByCaller_AttackType_Light);
+	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Player_SetByCaller_AttackType_Heavy);
+
 	/** Enemy Tags **/
 	AVALON_API UE_DECLARE_GAMEPLAY_TAG_EXTERN(Enemy_Weapon);
 

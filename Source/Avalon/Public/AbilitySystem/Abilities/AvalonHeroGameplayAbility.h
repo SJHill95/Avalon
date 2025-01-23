@@ -28,7 +28,7 @@ public:
 	UHeroCombatComponent* GetHeroCombatComponentFromActorInfo();
 
 	UFUNCTION(BlueprintPure, Category = "Avalon|Ability")
-	FGameplayEffectSpecHandle MakeHeroDamageEffectSpecHandle(TSubclassOf<UGameplayEffect> EffectClass, float InWeaponBaseDamage, FGameplayTag InCurrentAttackTypeTag, int32 InCurrentComboCount);
+	FGameplayEffectSpecHandle MakeHeroDamageEffectSpecHandle(TSubclassOf<UGameplayEffect> EffectClass, float InWeaponBaseDamage, FGameplayTag InCurrentAttackTypeTag, int32 InUsedComboCount);
 	
 private:
 	TWeakObjectPtr<AAvalonHeroCharacter> CachedAvalonHeroCharacter;
