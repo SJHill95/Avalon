@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Abilities/GameplayAbility.h"
+#include "AvalonTypes/AvalonEnumTypes.h"
 #include "AvalonGameplayAbility.generated.h"
 
 class UAvalonAbilitySystemComponent;
@@ -38,4 +39,9 @@ protected:
 
 	UFUNCTION(BlueprintPure, Category = "Avalon|Ability")
 	UAvalonAbilitySystemComponent* GetAvalonAbilitySystemComponentFromActorInfo() const;
+
+	FActiveGameplayEffectHandle NativeApplyEffectSpecHandleToTarget(AActor* TargetActor, const FGameplayEffectSpecHandle InSpecHandle);
+
+	UFUNCTION(BlueprintCallable, Category = "Avalon|Ability", meta = (DisplayName = "Apply Gameplay Effect Spec Handle to Target Actor" ,ExpandEnumAsExecs = "OutSuccessType"))
+	FActiveGameplayEffectHandle BP_ApplyEffectSpecHandleToTarget(AActor* TargetActor, const FGameplayEffectSpecHandle InSpecHandle, EAvalonSuccessType& OutSuccessType);
 };

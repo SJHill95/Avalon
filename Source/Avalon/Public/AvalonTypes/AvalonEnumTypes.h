@@ -16,3 +16,11 @@ enum class EAvalonValidType : uint8
 	Invalid
 };
 
+UENUM()
+enum class EAvalonSuccessType : uint8
+{
+	Successful,
+	Failed
+};
+
+

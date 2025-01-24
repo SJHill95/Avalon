@@ -2,6 +2,8 @@
 
 
 #include "AbilitySystem/Abilities/AvalonGameplayAbility.h"
+
+#include "AbilitySystemBlueprintLibrary.h"
 #include "AbilitySystem/AvalonAbilitySystemComponent.h"
 #include "Components/Combat/PawnCombatComponent.h"
 
@@ -41,4 +43,23 @@ UPawnCombatComponent* UAvalonGameplayAbility::GetPawnCombatComponentFromActorInf
 UAvalonAbilitySystemComponent* UAvalonGameplayAbility::GetAvalonAbilitySystemComponentFromActorInfo() const
 {
 	return Cast<UAvalonAbilitySystemComponent>(CurrentActorInfo->AbilitySystemComponent);
+}
+
+FActiveGameplayEffectHandle UAvalonGameplayAbility::NativeApplyEffectSpecHandleToTarget(AActor* TargetActor, const FGameplayEffectSpecHandle InSpecHandle)
+{
+	UAbilitySystemComponent* TargetASC = UAbilitySystemBlueprintLibrary::GetAbilitySystemComponent(TargetActor);
+
+	check (TargetASC != nullptr && InSpecHandle.IsValid());
+
+	return GetAvalonAbilitySystemComponentFromActorInfo()->ApplyGameplayEffectSpecToTarget(*InSpecHandle.Data, TargetASC);
+}
+
+FActiveGameplayEffectHandle UAvalonGameplayAbility::BP_ApplyEffectSpecHandleToTarget(AActor* TargetActor,
+	const FGameplayEffectSpecHandle InSpecHandle, EAvalonSuccessType& OutSuccessType)
+{
+	FActiveGameplayEffectHandle ActiveGameplayEffectHandle = NativeApplyEffectSpecHandleToTarget(TargetActor, InSpecHandle);
+
+	OutSuccessType = ActiveGameplayEffectHandle.WasSuccessfullyApplied() ? EAvalonSuccessType::Successful : EAvalonSuccessType::Failed;
+
+	return ActiveGameplayEffectHandle;
 }
