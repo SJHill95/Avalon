@@ -24,6 +24,8 @@ class AVALON_API UAvalonAttributeSet : public UAttributeSet
 public:
 	UAvalonAttributeSet();
 
+	virtual void PostGameplayEffectExecute(const struct FGameplayEffectModCallbackData& Data) override;
+
 	UPROPERTY(BlueprintReadOnly, Category = "Health")
 	FGameplayAttributeData CurrentHealth;
 	ATTRIBUTE_ACCESSORS(UAvalonAttributeSet, CurrentHealth)
@@ -47,5 +49,9 @@ public:
 	UPROPERTY(BlueprintReadOnly, Category = "Damage")
 	FGameplayAttributeData DefencePower;
 	ATTRIBUTE_ACCESSORS(UAvalonAttributeSet, DefencePower)
+
+	UPROPERTY(BlueprintReadOnly, Category = "Damage")
+	FGameplayAttributeData DamageTaken;
+	ATTRIBUTE_ACCESSORS(UAvalonAttributeSet, DamageTaken)
 	
 };
